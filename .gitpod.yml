@@ -1,28 +1,29 @@
-image:
-  file: .gp/Dockerfile
+image: ghcr.io/cpp-review-dune/introductory-review/dunepdelabtutorials:latest
 
-tasks:
-  - name: "ssh public key setup"
-    command: |
-      docker run -it --rm -v $(pwd):/home/gitpod/work ghcr.io/cpp-review-dune/introductory-review/dunebasics:latest
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
+    addComment: true
+    # add a "Review in Gitpod" button to pull requests (defaults to false)
+    addBadge: false
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: prebuilt-in-gitpod
 
-ports:
-  # [ NOTE ] => for chisel
-  - port: 8080
-    onOpen: ignore
-  # [ NOTE ] => for dropbear
-  - port: 2222
-    onOpen: ignore
 vscode:
   extensions:
-    - ms-azuretools.vscode-docker
-    - golang.Go
-    - bungcip.better-toml
+    - ms-python.python
+    - anwar.papyrus-pdf
+    - twxs.cmake
+    - ms-vscode.cmake-tools
+    - cschlosser.doxdocgen
+    - xaver.clang-format
     - TabNine.tabnine-vscode
-    - EditorConfig.EditorConfig
-    - kevinkyang.auto-comment-blocks
-    - ms-azuretools.vscode-docker
-    - wmaurer.change-case
-    - skellock.just
-    - wholroyd.hcl
-    - gruntfuggly.todo-tree
+Footer
